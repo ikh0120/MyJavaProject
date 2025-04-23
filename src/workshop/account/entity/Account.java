@@ -1,36 +1,35 @@
 package workshop.account.entity;
 
-public class Account extends Object{
+import workshop.account.exception.InsufficientBalanceException;
+
+public class Account extends Object {
 	private String custId;
 	private String acctId;
 	private int balance;
 	
-	//Default Constructor(기본 생성자)
+	//Default Constructor(생성자)
 	public Account() {
 		System.out.println("Default Constructor Called..");
 	}
-	
-	//Constructor Overloading(생성자 중복 정의) 
-	// Source/Generate Constructor using Field...
+	//Constructor Overloading( 생성자 중복정의 )
 	public Account(String custId, String acctId, int balance) {
 		this.custId = custId;
 		this.acctId = acctId;
 		this.balance = balance;
 	}
-	
-	// 자동으로 Getter Setter 메서드 만들어줌
-	// Source/Generate Getters and Setters
-	// Setter
+
+	//setter
 	public void setCustId(String custId) {
 		this.custId = custId;
 	}
 	public void setAcctId(String acctId) {
 		this.acctId = acctId;
 	}
+//	public void setBalance(int balance) {
+//		this.balance = balance;
+//	}
 	
-	
-	
-	// Getter
+	//getter
 	public int getBalance() {
 		return balance;
 	}
@@ -41,27 +40,29 @@ public class Account extends Object{
 		return acctId;
 	}
 	
-	// 입금
+	//입금 
 	public void deposit(int amount) {
 		this.balance += amount;
 	}
-	// 출금
-	public void withdraw(int amount) {
+	//출금
+	public void withdraw(int amount) throws InsufficientBalanceException {
 		if(amount > balance) {
-			System.out.println("잔액부족");
+			//InsufficientBalanceException 강제로 발생
+			String errMesage = String.format("잔액이 부족합니다. (요청 금액: %d, 현재 잔액: %d)", amount, balance);
+			throw new InsufficientBalanceException(errMesage);
 		}
 		this.balance -= amount;
 	}
 	
-	//부모 클래스가 가진 Object의 toString() 메서드 재정의(Overriding)
-	// Source/Generate toSting
-	// Method Signature public String toString()
+	//부모 클래스가 가진 Object의 toString() 메서드를 재정의(Overriding)
+	//Method Signature public String toString()
 	@Override
 	public String toString() {
-		return "Account [" + "custId=" + custId + 
-				", acctId=" + acctId + 
-				", balance=" + balance + "]";
+		return "Account [custId=" + custId + ", "
+				+ "acctId=" + acctId 
+				+ ", balance=" + balance + "]";
 	}
 	
+
 	
 }
