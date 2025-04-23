@@ -22,7 +22,7 @@ public class PersonManager {
 		
 		System.out.println(mgr.findByGender(persons, '여'));
 		
-		
+		mgr.showPerson(persons, "김하늘");
 		
 		
 	}
@@ -53,10 +53,24 @@ public class PersonManager {
 		int genderCnt = 0;
 		for (PersonEntity person : persons) {
 			// gender 비교
+			// char 타입은 primitive 타입으로 값을 비교할 때 == 연산자를 사용해도 됨
 			if(person.getGender() == gender) {
 				genderCnt++;
 			}
 		}
 		return genderCnt;
+	}
+	
+	public void showPerson(PersonEntity[] persons, String name) {
+		for (PersonEntity person : persons) {
+			// String은 Reference(참조)타입 이므로 값을 비교할 때 String.equals() 메서드를 사용해야 됨
+			if (person.getName().equals(name)) {
+				System.out.println("[이름] " + person.getName());
+				System.out.println("[성별] " + person.getGender());
+				System.out.println("[전화번호] " + person.getPhone());
+				System.out.println("[주소] " + person.getAddress());
+				break;
+			}
+		}
 	}
 }
