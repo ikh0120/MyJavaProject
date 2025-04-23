@@ -10,8 +10,11 @@ public class StudentTest {
 		System.out.println(
 				stu1.getName() + " / "
 						+ stu1.getMajor() + " / "
-							+ stu1.getGrade());
+							+ stu1.getGrade() + "학년");
 		stu1.setGrade(5);
+		
+		// 확인
+		System.out.println(stu1.getGrade());
 		
 	}
 }
