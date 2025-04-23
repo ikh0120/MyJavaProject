@@ -17,8 +17,10 @@ public class PersonManager {
 		// static으로 선언되는데 static 빼버리면 다시 자기 클래스를 호출해서 메서드를 사용해야 됨
 		PersonManager mgr = new PersonManager();
 		mgr.fillPersons(persons);
+		
 		mgr.showPersons(persons);
-				
+		
+		System.out.println(mgr.findByGender(persons, '여'));
 		
 		
 		
@@ -27,7 +29,7 @@ public class PersonManager {
 
 	public void showPersons(PersonEntity[] persons) {
 		// Enhanced for Loop
-		for(PersonEntity person : persons) {
+		for(PersonEntity person : persons) { // foreach + ctrl + enter
 			System.out.println(person.getName() + "\t" + person.getGender() + "\t" + person.getPhone());
 		}
 	}
@@ -45,7 +47,16 @@ public class PersonManager {
 		persons[7] = new PersonEntity("유성미","7103282025101", "서울 은평구", "02-452-0939");
 		persons[8] = new PersonEntity("황재현","7806231031101", "인천 중구", "032-327-2202");
 		persons[9] = new PersonEntity("최철수","7601211025101", "인천 계양구", "032-122-7832");
-
-
+	}
+	
+	public int findByGender(PersonEntity[] persons, char gender) {
+		int genderCnt = 0;
+		for (PersonEntity person : persons) {
+			// gender 비교
+			if(person.getGender() == gender) {
+				genderCnt++;
+			}
+		}
+		return genderCnt;
 	}
 }
