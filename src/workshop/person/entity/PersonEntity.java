@@ -12,10 +12,17 @@ public class PersonEntity {
 	}
 
 	public PersonEntity(String name, String ssn, String address, String phone) {
-		this.name = name;
-		this.ssn = ssn;
-		this.address = address;
-		this.phone = phone;
+//		원래는 이렇게 하지만
+//		this.name = name;
+//		this.ssn = ssn;
+//		this.address = address;
+//		this.phone = phone;
+
+//		생성자를 통해 변수 초기화하는 방법도 있음
+		setSsn(ssn);
+		setName(name);
+		setAddress(address);
+		setPhone(phone);
 	}
 
 	public String getName() {
