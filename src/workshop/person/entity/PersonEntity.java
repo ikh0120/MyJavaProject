@@ -40,6 +40,16 @@ public class PersonEntity {
 
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
+		// 주민번호가 0508073347558라면 성별은 index 6
+		char genderNum = ssn.charAt(6);
+		if(genderNum == '1' || genderNum == '3') {
+			// this.gender = '남'; // 이거보다는 setter method 써도 됨
+			setGender('남');
+		} else {
+			setGender('여');
+		}
+		
+		
 	}
 
 	public String getAddress() {
