@@ -28,7 +28,7 @@ public class PersonManager {
 	public void showPersons(PersonEntity[] persons) {
 		// Enhanced for Loop
 		for(PersonEntity person : persons) {
-			System.out.println(person.getName() + " " + person.getGender() + " " + person.getPhone());
+			System.out.println(person.getName() + "\t" + person.getGender() + "\t" + person.getPhone());
 		}
 	}
 
