@@ -1,7 +1,7 @@
 package workshop.account.entity;
 
 public class Account {
-	public static void main(String[] args) {
-		
-	}
+	private String custId;
+	private String acctId;
+	private int balance;
 }
