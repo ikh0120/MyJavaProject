@@ -47,8 +47,8 @@ public class Account extends Object {
 	//출금
 	public void withdraw(int amount) throws InsufficientBalanceException {
 		if(amount > balance) {
-			//InsufficientBalanceException 강제로 발생
 			String errMesage = String.format("잔액이 부족합니다. (요청 금액: %d, 현재 잔액: %d)", amount, balance);
+			//InsufficientBalanceException 강제로 발생
 			throw new InsufficientBalanceException(errMesage);
 		}
 		this.balance -= amount;
