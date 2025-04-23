@@ -17,15 +17,19 @@ public class PersonManager {
 		// static으로 선언되는데 static 빼버리면 다시 자기 클래스를 호출해서 메서드를 사용해야 됨
 		PersonManager mgr = new PersonManager();
 		mgr.fillPersons(persons);
+		mgr.showPersons(persons);
+				
 		
 		
 		
-		//Enhanced for Loop
+		
+	}
+
+	public void showPersons(PersonEntity[] persons) {
+		// Enhanced for Loop
 		for(PersonEntity person : persons) {
 			System.out.println(person.getName() + " " + person.getGender() + " " + person.getPhone());
 		}
-		
-		
 	}
 
 	// non-static method
