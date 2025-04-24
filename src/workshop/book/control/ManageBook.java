@@ -81,7 +81,21 @@ public class ManageBook {
 		
 		pub.setPrice((int)(pub.getPrice() * rate));
 		
-	}
+	} //Publication p = new Magazine();
+	
+	//Polymorphic Argument 개념을 적용하지 않고, 하위클래스 타입별로 메서드 정의
+	//	public void mPrice(Magazine m) {
+	//		
+	//	}
+	//	
+	//	public void mPrice(Novel n) {
+	//		
+	//	}
+	//	
+	//	public void mPrice(ReferenceBook r) {
+	//		
+	//	}
+
 	
 	
 }
