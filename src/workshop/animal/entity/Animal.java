@@ -7,7 +7,7 @@ public abstract class Animal {
 		this.legs = legs;
 	}
 	
-	// 추상 메서드라 밑의 자식 클래스에서 만들거
+	// 추상 메서드라 밑의 자식 클래스에서 강제로 만들기
 	public abstract void eat();
 	
 	public void walk() {
