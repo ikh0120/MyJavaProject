@@ -11,4 +11,13 @@ public class ReferenceBook extends Publication {
 		super(title, publishingDate, page, price);
 		this.field = field;
 	}
+	
+
+	public String getField() {
+		return field;
+	}
+	
+	public void setField(String field) {
+		this.field = field;
+	}
 }

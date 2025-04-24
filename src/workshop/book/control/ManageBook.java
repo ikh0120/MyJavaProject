@@ -42,8 +42,27 @@ public class ManageBook {
 		// 이게 다형성임
 		*/
 		
+		for (Publication publication : pubs) {
+			printSubInfo(publication);
+		}
 		
 				
+	}
+	
+	//하위(Sub)클래스들이 단독으로 가지고 있는 정보를 출력하는 메서드
+	public static void printSubInfo(Publication pub) {
+		if(pub instanceof Magazine) {
+			Magazine m = (Magazine)pub;
+			System.out.println(m.getPublishingPeriod());
+		}
+		if(pub instanceof Novel) {
+			Novel n = (Novel)pub;
+			System.out.println(n.getAuthor() + " " + n.getGenre());
+		}
+		if(pub instanceof ReferenceBook) {
+			ReferenceBook r = (ReferenceBook)pub;
+			System.out.println(r.getField());
+		}
 	}
 	
 	// 다형적 아규먼트(Polymorphic Argument)
